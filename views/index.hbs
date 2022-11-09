@@ -1,1 +1,50 @@
-<h2>index</h2>
+<div class="container">
+  <select class="form-select" aria-label="Default select example">
+    <option selected>類別</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+
+  <div class="total" id="totalAmount">
+    <p>總金額:</p><span class="totalAmount" id="totalAmount">25260</span>
+  </div>
+
+  <table class="table table-hover">
+    <tbody>
+      <tr class="table-active">
+        <th scope="row" class="icon" id="icon">icon</th>
+        <td>
+          <div>
+            <p class="name" id="name">name</p>
+            <small class="date" id="date">date</small>
+          </div>
+        </td>
+        <td class="amount" id="amount">amount</td>
+        <td class="edit-delete-btn">
+          <a class="btn btn-success" href=".//{{ this._id }}/edit">修改</a>
+          <form action=".//{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+            <button class="btn btn-danger" type="submit">刪除</button>
+          </form>
+      </tr>
+      <tr class="table-default">
+        <th scope="row" class="icon" id="icon">icon</th>
+        <td>
+          <div>
+            <p class="name" id="name">name</p>
+            <small class="date" id="date">date</small>
+          </div>
+        </td>
+        <td class="amount" id="amount">amount</td>
+        <td class="edit-delete-btn">
+          <a class="btn btn-success" href=".//{{ this._id }}/edit">修改</a>
+          <form action=".//{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+            <button class="btn btn-danger" type="submit">刪除</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="button" class="create-btn btn btn-primary">新增支出</button>
+</div>

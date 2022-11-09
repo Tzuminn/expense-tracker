@@ -1,0 +1,98 @@
+.navbar .navbar-brand {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.login-button {
+  background-color: #fff;
+  border: 1px solid black;
+  letter-spacing: 2px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.total p {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: -40px;
+}
+
+.totalAmount {
+  font-size: 50px;
+  margin: 0px 0px 20px 130px;
+  color: #E95420;
+}
+
+.table-active {
+  align-items: center;
+}
+
+#icon {
+  text-align: end;
+  width: 15%;
+  font-size: 30px;
+}
+
+#name {
+  margin-bottom: -10px;
+  font-size: 25px;
+}
+
+#date {
+  font-size: 5px;
+}
+
+#amount {
+  text-align: end;
+  width: 15%;
+  font-size: 20px;
+}
+
+.form-select {
+  width: 300px;
+}
+
+.edit-delete-btn {
+  text-align: end;
+  width: 35%;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 3px;
+}
+
+.edit-delete-btn .btn-success {
+  margin-right: 5px;
+}
+
+.create-btn {
+  width: 150px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 30px auto;
+  border: 1px solid black;
+}
+
+@media screen and (max-width: 992px) {
+  .card img {
+    height: 115px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .restaurant-show-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .card img {
+    height: auto;
+  }
+}
