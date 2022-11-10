@@ -20,8 +20,13 @@
   <header>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
+        {{#if isAuthenticated}}
+        <a class="navbar-brand" href="/">{{user.name}} 的家庭記帳本</a>
+        <a href="/users/logout" class="login-button btn btn-outline-primary">登出 <i
+            class="fa-solid fa-right-from-bracket"></i></a>
+        {{else}}
         <a class="navbar-brand" href="/">家庭記帳本</a>
-        <a href="/" class="login-button btn btn-outline-primary" type="submit">登入</a>
+        {{/if}}
       </div>
     </nav>
   </header>

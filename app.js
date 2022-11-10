@@ -35,6 +35,13 @@ app.use(express.static('public'))
 // passport
 usePassport(app)
 
+// 本地變數
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
+  next()
+})
+
 // 路由器
 app.use(routes)
 

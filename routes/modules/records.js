@@ -11,6 +11,7 @@ router.get('/new', (req, res) => {
 
 // 新增功能
 router.post('/', (req, res) => {
+  const userId = req.user._id
   const {
     name,
     date,
@@ -22,7 +23,8 @@ router.post('/', (req, res) => {
     name,
     date,
     category,
-    amount
+    amount,
+    userId
   })
     .then(() => res.redirect('/'))
     .catch((error) => console.log(error))
@@ -30,8 +32,9 @@ router.post('/', (req, res) => {
 
 // 編輯頁面
 router.get('/:id/edit', (req, res) => {
-  const id = req.params.id
-  return Record.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  return Record.findOne({ _id, userId })
     .lean()
     .then(record => res.render('edit', { record }))
     .catch(error => console.log(error))
@@ -39,9 +42,10 @@ router.get('/:id/edit', (req, res) => {
 
 // 編輯功能
 router.put('/:id', (req, res) => {
-  const id = req.params.id
+  const userId = req.user._id
+  const _id = req.params.id
   const recordsInfo = req.body
-  return Record.findByIdAndUpdate(id, recordsInfo)
+  return Record.findByIdAndUpdate({ _id, userId }, recordsInfo)
     .lean()
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
@@ -49,8 +53,9 @@ router.put('/:id', (req, res) => {
 
 // 刪除功能
 router.delete('/:id', (req, res) => {
-  const id = req.params.id
-  return Record.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  return Record.findOne({ _id, userId })
     .then(record => record.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
