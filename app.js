@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 
@@ -12,6 +13,13 @@ const port = 3000
 // 模板引擎
 app.engine('hbs', exphbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
+
+// session
+app.use(session({
+  secret: 'ThisIsExpenseTracker',
+  resave: false,
+  saveUninitialized: true
+}))
 
 // body-parser
 app.use(express.urlencoded({ extended: true }))
