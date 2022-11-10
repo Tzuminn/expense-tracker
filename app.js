@@ -2,6 +2,7 @@ const express = require('express')
 const session = require('express-session')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
+const flash = require('connect-flash')
 
 // 路由及連線
 const routes = require('./routes')
@@ -34,11 +35,15 @@ app.use(express.static('public'))
 
 // passport
 usePassport(app)
+// flash
+app.use(flash())
 
 // 本地變數
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.user = req.user
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.warning_msg = req.flash('warning_msg')
   next()
 })
 
