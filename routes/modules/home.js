@@ -6,7 +6,10 @@ const Record = require('../../models/record')
 
 // 首頁
 router.get('/', (req, res) => {
-  res.render('index')
+  Record.find()
+    .lean()
+    .then(records => res.render('index', { records }))
+    .catch(error => console.log(error))
 })
 
 module.exports = router

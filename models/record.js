@@ -14,14 +14,10 @@ const recordSchema = new Schema({
     type: Number,
     required: true
   },
-  // userId: {
-  //   type: String,
-  //   required: true
-  // },
-  // categoryId: {
-  //   type: String,
-  //   required: true
-  // },
+  category: {
+    type: String,
+    required: true
+  },
 })
 
 module.exports = mongoose.model('Record', recordSchema)
