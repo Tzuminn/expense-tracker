@@ -13,14 +13,14 @@
   <table class="table table-hover">
     <tbody>
       <tr class="table-active">
-        <th scope="row" class="icon" id="icon">{{this.category.icon}}</th>
+        <th scope="row" id="index-icon">{{this.category.icon}}</th>
         <td>
           <div>
-            <p class="name" id="name">{{this.name}}</p>
-            <small class="date" id="date">{{this.date}}</small>
+            <p id="index-name">{{this.name}}</p>
+            <small id="index-date">{{this.date}}</small>
           </div>
         </td>
-        <td class="money" id="money">{{this.amount}}</td>
+        <td id="index-amount">{{this.amount}}</td>
         <td class="edit-delete-btn">
           <a class="btn btn-success" href="./records/{{ this._id }}/edit">修改</a>
           <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline">
