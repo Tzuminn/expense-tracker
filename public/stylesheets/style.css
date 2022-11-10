@@ -114,3 +114,12 @@ label, input{
 .new-btn-location {
   text-align: end;
 }
+
+.sign-in-btn, .fb-btn{
+  width: 100%;
+  font-size: 20px;
+}
+
+.login-card {
+  width: 500px;
+}
