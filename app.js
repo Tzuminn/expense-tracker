@@ -1,5 +1,10 @@
 const express = require('express')
-const exphbs = require('express-handlebars') 
+const exphbs = require('express-handlebars')
+
+// 路由及連線
+const routes = require('./routes')
+require('./config/mongoose')
+
 const app = express()
 const port = 3000
 
@@ -10,9 +15,8 @@ app.set('view engine', 'hbs')
 // 靜態檔案
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-  res.render('index')
-})
+// 路由器
+app.use(routes)
 
 app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`)

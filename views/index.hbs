@@ -20,7 +20,7 @@
             <small class="date" id="date">date</small>
           </div>
         </td>
-        <td class="amount" id="amount">amount</td>
+        <td class="money" id="money">amount</td>
         <td class="edit-delete-btn">
           <a class="btn btn-success" href=".//{{ this._id }}/edit">修改</a>
           <form action=".//{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
@@ -35,7 +35,7 @@
             <small class="date" id="date">date</small>
           </div>
         </td>
-        <td class="amount" id="amount">amount</td>
+        <td class="money" id="money">amount</td>
         <td class="edit-delete-btn">
           <a class="btn btn-success" href=".//{{ this._id }}/edit">修改</a>
           <form action=".//{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
@@ -45,6 +45,5 @@
       </tr>
     </tbody>
   </table>
-
-  <button type="button" class="create-btn btn btn-primary">新增支出</button>
+  <a href="/records/new" class="create-btn btn btn-primary">新增支出</a>
 </div>

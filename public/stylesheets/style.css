@@ -48,7 +48,7 @@
   font-size: 5px;
 }
 
-#amount {
+#money {
   text-align: end;
   width: 15%;
   font-size: 20px;
@@ -79,20 +79,37 @@
   border: 1px solid black;
 }
 
-@media screen and (max-width: 992px) {
-  .card img {
-    height: 115px;
-  }
+.card-small {
+  font-size: 10px;
 }
 
-@media screen and (max-width: 768px) {
-  .restaurant-show-title {
-    font-size: 2rem;
-  }
+.card-title {
+  font-size: 35px;
+  margin: 0 0 0 35px;
+  font-weight: 700;
 }
 
-@media screen and (max-width: 575px) {
-  .card img {
-    height: auto;
-  }
+.require {
+  color: red;
+}
+
+form.was-validated input:invalid {
+  border-bottom: 1px solid red;
+}
+
+form.was-validated input:valid {
+  border-bottom: 1px solid green;
+}
+
+.require {
+  color: red;
+  font-weight: 700;
+}
+
+label, input{
+  height: 40px;
+}
+
+.new-btn-location {
+  text-align: end;
 }
