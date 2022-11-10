@@ -4,6 +4,11 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
 
+// 如果是在正式環境中執行，就讀取env檔案
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 // 路由及連線
 const routes = require('./routes')
 require('./config/mongoose')
@@ -11,7 +16,7 @@ require('./config/mongoose')
 const usePassport = require('./config/passport')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 // 模板引擎
 app.engine('hbs', exphbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
@@ -19,7 +24,7 @@ app.set('view engine', 'hbs')
 
 // session
 app.use(session({
-  secret: 'ThisIsExpenseTracker',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
