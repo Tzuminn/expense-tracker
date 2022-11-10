@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../../models/user')
+const passport = require('passport')
 
 // 登入頁面
 router.get('/login', (req, res) => {
@@ -9,8 +10,10 @@ router.get('/login', (req, res) => {
 
 
 // 登入功能
-router.post('/login', (req, res) => {
-})
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/users/login'
+}))
 
 
 // 註冊頁面
@@ -43,6 +46,9 @@ router.post('/register', (req, res) => {
 })
 
 // 登出功能
-
+router.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/users/login')
+})
 
 module.exports = router

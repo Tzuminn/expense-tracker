@@ -7,6 +7,8 @@ const methodOverride = require('method-override')
 const routes = require('./routes')
 require('./config/mongoose')
 
+const usePassport = require('./config/passport')
+
 const app = express()
 const port = 3000
 
@@ -29,6 +31,9 @@ app.use(methodOverride('_method'))
 
 // 靜態檔案
 app.use(express.static('public'))
+
+// passport
+usePassport(app)
 
 // 路由器
 app.use(routes)
