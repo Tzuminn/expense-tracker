@@ -13,11 +13,11 @@
   <table class="table table-hover">
     <tbody>
       <tr class="table-active">
-        <th scope="row" id="index-icon">{{this.category.icon}}</th>
+        <th scope="row" id="index-icon"><i class="{{Icon this.category}}"></i></th>
         <td>
           <div>
             <p id="index-name">{{this.name}}</p>
-            <small id="index-date">{{this.date}}</small>
+            <small id="index-date">{{dateFormat this.date}}</small>
           </div>
         </td>
         <td id="index-amount">{{this.amount}}</td>
@@ -32,3 +32,5 @@
   {{/each}}
   <a href="/records/new" class="create-btn btn btn-primary">新增支出</a>
 </div>
+
+<script src='../utility/time.js'></script>

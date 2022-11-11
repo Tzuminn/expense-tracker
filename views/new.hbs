@@ -1,4 +1,4 @@
-<div class="container py-5">
+<div class="container py-5" id="form">
   <div class="row">
     <div class="col-12 col-lg-10 col-xl-8 mx-auto">
       <div class="card">
@@ -36,14 +36,12 @@
                 類別 <span class="require">*</span>
               </label>
               <div class="col-md-10">
-                <input list="categories" name="category" class="form-control" id="category" required>
-                <datalist id="categories">
-                  <option value="{{this.id}}">家居物業</option>
-                  <option>交通出行</option>
-                  <option>休閒娛樂</option>
-                  <option>餐飲食品</option>
-                  <option>其他</option>
-                </datalist>
+                <select class="form-control" id="category-dropdown" name="category" aria-label="select-by-category">
+                  <option value="All">請選擇類別</option>
+                  {{#each categoryList}}
+                  <option value="{{this.id}}" {{#if this.selected}}selected{{/if}}>{{this.name}}</option>
+                  {{/each}}
+                </select>
                 <div class="valid-feedback">OK</div>
                 <div class="invalid-feedback">必填</div>
               </div>
@@ -74,3 +72,5 @@
     </div>
   </div>
 </div>
+
+<script src='../utility/time.js'></script>

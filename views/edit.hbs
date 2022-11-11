@@ -25,7 +25,7 @@
                 日期 <span class="require">*</span>
               </label>
               <div class="col-md-10">
-                <input type="date" name="date" class="form-control" id="date" value="{{record.date}}" required>
+                <input type="date" name="date" class="form-control" id="date" value="{{dateFormat record.date}}" required>
                 <div class="valid-feedback">OK</div>
                 <div class="invalid-feedback">必填</div>
               </div>
@@ -36,14 +36,11 @@
                 類別 <span class="require">*</span>
               </label>
               <div class="col-md-10">
-                <input list="categories" name="category" class="form-control" id="category" value="{{record.category}}" required>
-                <datalist id="categories">
-                  <option>家居物業</option>
-                  <option>交通出行</option>
-                  <option>休閒娛樂</option>
-                  <option>餐飲食品</option>
-                  <option>其他</option>
-                </datalist>
+                <select class="category-dropdown" name="category">
+                  {{#each categoryList}}
+                  <option value="{{this.id}}" {{#if this.selected}}selected{{/if}}>{{this.name}}</option>
+                  {{/each}}
+                </select>
                 <div class="valid-feedback">OK</div>
                 <div class="invalid-feedback">必填</div>
               </div>
@@ -74,3 +71,5 @@
     </div>
   </div>
 </div>
+
+<script src='../utility/time.js'></script>

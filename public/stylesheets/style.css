@@ -34,9 +34,10 @@
 }
 
 #index-icon {
-  text-align: end;
+  text-align: center;
   width: 15%;
   font-size: 30px;
+  color: #1262b3;
 }
 
 #index-name {

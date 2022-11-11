@@ -1,31 +1,26 @@
 const express = require('express')
 const router = express.Router()
 
-// 引用 Record model
+// 引用 model
 const Record = require('../../models/record')
+const Category = require('../../models/category')
+const category = require('../../models/category')
 
 // 新增頁面
 router.get('/new', (req, res) => {
-  return res.render('new')
+  Category.find()
+    .lean()
+    .then(categoryList => {
+      res.render('new', { categoryList })
+    })
+    .catch(err => console.log(err))
 })
 
 // 新增功能
 router.post('/', (req, res) => {
   const userId = req.user._id
-  const {
-    name,
-    date,
-    category,
-    amount,
-  } = req.body
-
-  Record.create({ 
-    name,
-    date,
-    category,
-    amount,
-    userId
-  })
+  req.body.userId = userId
+  Record.create(req.body)
     .then(() => res.redirect('/'))
     .catch((error) => console.log(error))
 })
@@ -34,9 +29,22 @@ router.post('/', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  return Record.findOne({ _id, userId })
+  const categoryList = []
+  Category.find()
     .lean()
-    .then(record => res.render('edit', { record }))
+    .then(category => {
+      categoryList.push(...category) 
+    })
+  Record.findOne({ _id, userId })
+    .lean()
+    .then(record => {
+      categoryList.forEach(category => {
+        if (category.id === record.category) {
+          category.selected = true
+        }
+      })
+      res.render('edit', { record, categoryList }) 
+    })
     .catch(error => console.log(error))
 })
 
