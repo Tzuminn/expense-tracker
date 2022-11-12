@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
   req.body.userId = userId
   Record.create(req.body)
     .then(() => res.redirect('/'))
-    .catch((error) => console.log(error))
+    .catch(err => console.log(err))
 })
 
 // 編輯頁面
@@ -45,7 +45,7 @@ router.get('/:id/edit', (req, res) => {
       })
       res.render('edit', { record, categoryList }) 
     })
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 })
 
 // 編輯功能
@@ -56,7 +56,7 @@ router.put('/:id', (req, res) => {
   return Record.findByIdAndUpdate({ _id, userId }, recordsInfo)
     .lean()
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 })
 
 // 刪除功能
@@ -66,7 +66,7 @@ router.delete('/:id', (req, res) => {
   return Record.findOne({ _id, userId })
     .then(record => record.remove())
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(err => console.log(err))
 })
 
 
