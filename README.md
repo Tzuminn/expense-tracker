@@ -65,15 +65,12 @@ npm run dev
 
 ### 首頁
 
-![首頁]()
+![首頁](https://github.com/Tzuminn/expense-tracker/blob/main/public/img/homepage.jpg)
 
 ### 登入功能
 
-![登入功能]()
+![登入功能](https://github.com/Tzuminn/expense-tracker/blob/main/public/img/loginpage.jpg)
 
-### 新增功能
-
-![新增功能]()
 
 
 ## 環境及安裝套件
